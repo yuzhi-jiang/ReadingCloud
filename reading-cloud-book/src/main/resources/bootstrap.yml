@@ -1,0 +1,36 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /book
+spring:
+  # 服务逻辑名称
+  application:
+    name: light-reading-cloud-book
+  rabbitmq:
+    host: 127.0.0.1 # 主机名
+    port: 5672 # 端口
+    virtual-host: / # 虚拟主机
+    username: guest # 用户名
+    password: guest # 密码
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        refresh: true
+#         shared-dataids: light-reading-cloud-book.yml
+        namespace: 4d109a4d-f34d-4e86-9e39-c2d36db24b00
+        enabled: true
+      # 注册中心
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 4d109a4d-f34d-4e86-9e39-c2d36db24b00
+springfox:
+  documentation:
+#    open-api:
+#      v3:
+#        path: /${spring.application.name}/v3/api-docs
+#    swagger:
+#      v2:
+#        host: http://localhost:8001/

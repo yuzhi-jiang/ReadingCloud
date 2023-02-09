@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yefeng.readingcloud.homepage.dao.IndexBooklistMapper">
+
+    <resultMap id="BaseResultMap" type="com.yefeng.readingcloud.common.pojo.index.IndexBooklist">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="show_number" jdbcType="INTEGER" property="showNumber" />
+        <result column="style" jdbcType="INTEGER" property="style" />
+        <result column="more_type" jdbcType="INTEGER" property="moreType" />
+        <result column="more_url" jdbcType="VARCHAR" property="moreUrl" />
+        <result column="book_ids" jdbcType="VARCHAR" property="bookIds" />
+        <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+        <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+        <result column="creater" jdbcType="VARCHAR" property="creater" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="updater" jdbcType="VARCHAR" property="updater" />
+        <result column="show_like_count" jdbcType="BIT" property="showLikeCount" />
+
+    </resultMap>
+    <resultMap id="BookBaseResultMap" type="com.yefeng.readingcloud.common.pojo.book.Book">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="author_id" jdbcType="INTEGER" property="authorId" />
+        <result column="dic_category" jdbcType="INTEGER" property="dicCategory" />
+        <result column="dic_channel" jdbcType="INTEGER" property="dicChannel" />
+        <result column="dic_serial_status" jdbcType="INTEGER" property="dicSerialStatus" />
+        <result column="online_status" jdbcType="BIT" property="onlineStatus" />
+        <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+        <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+        <result column="book_score" jdbcType="INTEGER" property="bookScore" />
+        <result column="key_word" jdbcType="VARCHAR" property="keyWord" />
+        <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+        <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+        <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+        <result column="isbn" jdbcType="VARCHAR" property="isbn" />
+        <result column="word_count" jdbcType="INTEGER" property="wordCount" />
+        <result column="creater" jdbcType="VARCHAR" property="creater" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="updater" jdbcType="VARCHAR" property="updater" />
+    </resultMap>
+    <sql id="Base_Column_List">
+      id, name, show_number, style, more_type, more_url, book_ids, start_date, end_date, creater, create_time,
+      update_time, updater, show_like_count
+    </sql>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from  index_booklist
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+</mapper>

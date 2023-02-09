@@ -1,0 +1,21 @@
+server:
+  port: 8010
+spring:
+  application:
+    # 服务逻辑名称
+    name: light-reading-cloud-gateway
+
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        refresh: true
+#        shared-dataids: light-reading-cloud-gateway.yml
+        namespace: 4d109a4d-f34d-4e86-9e39-c2d36db24b00
+
+      # 注册中心
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 4d109a4d-f34d-4e86-9e39-c2d36db24b00
